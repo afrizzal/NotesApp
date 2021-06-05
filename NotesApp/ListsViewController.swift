@@ -17,19 +17,24 @@ class ListsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        AppData.sharedInstance.curUser = UserClass(inpName: "Aff",
+                                                   inpEmail: "defEmail",
+                                                   inpUid: "defUid")
+        PrepareFirstLists.prepare()
     }
     
     // required
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return AppData.sharedInstance.currentLST.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath)
+        let thisList = AppData.sharedInstance.currentLST[indexPath.row] as NotesAppListClass
         
-        cell.textLabel?.text = "test"
-        cell.detailTextLabel?.text = "sub test"
+        cell.textLabel?.text = thisList.listName
+        cell.detailTextLabel?.text = String(thisList.listItems.count) + " for " + thisList.listOwner.name
         
         return cell
     }

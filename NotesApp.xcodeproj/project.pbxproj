@@ -14,6 +14,11 @@
 		1B477CF2266B98C700BEF242 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B477CF1266B98C700BEF242 /* Assets.xcassets */; };
 		1B477CF5266B98C700BEF242 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B477CF3266B98C700BEF242 /* LaunchScreen.storyboard */; };
 		1B477CFD266BA4A600BEF242 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477CFC266BA4A600BEF242 /* ListsViewController.swift */; };
+		1B477CFF266BC97000BEF242 /* ItemClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477CFE266BC97000BEF242 /* ItemClass.swift */; };
+		1B477D01266BCAD000BEF242 /* UserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D00266BCAD000BEF242 /* UserClass.swift */; };
+		1B477D03266BCBA600BEF242 /* NotesAppListClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */; };
+		1B477D05266BCC7600BEF242 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D04266BCC7600BEF242 /* AppData.swift */; };
+		1B477D09266BCDEC00BEF242 /* PrepareFirstLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		1B477CF4266B98C700BEF242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B477CF6266B98C700BEF242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B477CFC266BA4A600BEF242 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		1B477CFE266BC97000BEF242 /* ItemClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemClass.swift; sourceTree = "<group>"; };
+		1B477D00266BCAD000BEF242 /* UserClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClass.swift; sourceTree = "<group>"; };
+		1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppListClass.swift; sourceTree = "<group>"; };
+		1B477D04266BCC7600BEF242 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareFirstLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +73,14 @@
 				1B477CEC266B98C600BEF242 /* ViewController.swift */,
 				1B477CEE266B98C600BEF242 /* Main.storyboard */,
 				1B477CFC266BA4A600BEF242 /* ListsViewController.swift */,
+				1B477CFE266BC97000BEF242 /* ItemClass.swift */,
 				1B477CF1266B98C700BEF242 /* Assets.xcassets */,
 				1B477CF3266B98C700BEF242 /* LaunchScreen.storyboard */,
 				1B477CF6266B98C700BEF242 /* Info.plist */,
+				1B477D00266BCAD000BEF242 /* UserClass.swift */,
+				1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */,
+				1B477D04266BCC7600BEF242 /* AppData.swift */,
+				1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */,
 			);
 			path = NotesApp;
 			sourceTree = "<group>";
@@ -142,8 +157,13 @@
 			files = (
 				1B477CED266B98C600BEF242 /* ViewController.swift in Sources */,
 				1B477CE9266B98C600BEF242 /* AppDelegate.swift in Sources */,
+				1B477CFF266BC97000BEF242 /* ItemClass.swift in Sources */,
+				1B477D05266BCC7600BEF242 /* AppData.swift in Sources */,
+				1B477D03266BCBA600BEF242 /* NotesAppListClass.swift in Sources */,
 				1B477CFD266BA4A600BEF242 /* ListsViewController.swift in Sources */,
 				1B477CEB266B98C600BEF242 /* SceneDelegate.swift in Sources */,
+				1B477D09266BCDEC00BEF242 /* PrepareFirstLists.swift in Sources */,
+				1B477D01266BCAD000BEF242 /* UserClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
