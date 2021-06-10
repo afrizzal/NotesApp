@@ -15,6 +15,7 @@ class AppData: NSObject {
     
     var curUser : UserClass?
     var currentLST: Array <NotesAppListClass>!
+    var offlineLST: Array <NotesAppListClass>!
     
     
     public override init ()
