@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroceryListClass: NSObject, NSCoding {
+class NotesAppListClass: NSObject, NSCoding {
     
     var listName: String!
     var listItems : Array <ItemClass>!

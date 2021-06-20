@@ -20,7 +20,7 @@ class ReadWriteOnDisk: NSObject {
     
     class func writeData ()   {
         
-        AppData.sharedInstance.offlineLST = Array<GroceryListClass> ()
+        AppData.sharedInstance.offlineLST = Array<NotesAppListClass> ()
         for anyList in AppData.sharedInstance.currentLST  {
             if ( anyList.listOwner.uid == AppData.sharedInstance.curUser?.uid)   {
                 AppData.sharedInstance.offlineLST.append(anyList)

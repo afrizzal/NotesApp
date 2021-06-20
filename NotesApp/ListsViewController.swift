@@ -15,7 +15,9 @@ class ListsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.readData()
+    }
         
         func readData ()
         {
@@ -49,7 +51,7 @@ class ListsViewController: UIViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath)
             
-            let thisList = AppData.sharedInstance.currentLST[indexPath.row] as GroceryListClass
+            let thisList = AppData.sharedInstance.currentLST[indexPath.row] as NotesAppListClass
             
             
             cell.textLabel?.text = thisList.listName
@@ -65,13 +67,13 @@ class ListsViewController: UIViewController {
             return true
         }
         
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
             AppData.sharedInstance.currentLST.remove(at: indexPath.row)
             ReadWriteOnDisk.writeData()
             
             
-            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
         }
         
         func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -88,7 +90,7 @@ class ListsViewController: UIViewController {
         @IBAction func newListAction(_ sender: Any) {
             let alert = UIAlertController (title: "New List",
                                             message: "Please enter the name of your new list",
-                                            preferredStyle: UIAlertControllerStyle.alert)
+                                            preferredStyle: UIAlertController.Style.alert)
             
             alert.addTextField { (textField) in
                 textField.placeholder = "new list"
@@ -97,14 +99,14 @@ class ListsViewController: UIViewController {
             }
             
             alert.addAction(UIAlertAction(title: "Save",
-                                          style: UIAlertActionStyle.default,
+                                          style: UIAlertAction.Style.default,
                                           handler:
                 { (myAlert) in
                     self.newListSave(inpName: alert.textFields![0].text!)
                 }))
             
             alert.addAction(UIAlertAction(title: "Cancel",
-                                          style: UIAlertActionStyle.cancel,
+                                          style: UIAlertAction.Style.cancel,
                                           handler:nil ))
             
             self.present(alert, animated: true, completion: nil)
@@ -113,7 +115,7 @@ class ListsViewController: UIViewController {
 
         func newListSave (inpName: String)
         {
-            let newList = GroceryListClass(inpListName: inpName,
+            let newList = NotesAppListClass(inpListName: inpName,
                                            inpOwner: AppData.sharedInstance.curUser!,
                                            inpListItems: [])
             
@@ -135,4 +137,3 @@ class ListsViewController: UIViewController {
         @IBAction func profileAction(_ sender: Any) {
         }
     }
-}
