@@ -19,6 +19,7 @@
 		1B477D03266BCBA600BEF242 /* NotesAppListClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */; };
 		1B477D05266BCC7600BEF242 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D04266BCC7600BEF242 /* AppData.swift */; };
 		1B477D09266BCDEC00BEF242 /* PrepareFirstLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */; };
+		1B4A2715267F0FF500F19DE4 /* ReadWriteOnDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A2714267F0FF500F19DE4 /* ReadWriteOnDisk.swift */; };
 		1BC582382672473700C5EED2 /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC582372672473700C5EED2 /* Convert.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppListClass.swift; sourceTree = "<group>"; };
 		1B477D04266BCC7600BEF242 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareFirstLists.swift; sourceTree = "<group>"; };
+		1B4A2714267F0FF500F19DE4 /* ReadWriteOnDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteOnDisk.swift; sourceTree = "<group>"; };
 		1BC582372672473700C5EED2 /* Convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				1B477CF6266B98C700BEF242 /* Info.plist */,
 				1B477D00266BCAD000BEF242 /* UserClass.swift */,
 				1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */,
+				1B4A2714267F0FF500F19DE4 /* ReadWriteOnDisk.swift */,
 				1B477D04266BCC7600BEF242 /* AppData.swift */,
 				1B477D08266BCDEC00BEF242 /* PrepareFirstLists.swift */,
 				1BC582372672473700C5EED2 /* Convert.swift */,
@@ -166,6 +169,7 @@
 				1B477D03266BCBA600BEF242 /* NotesAppListClass.swift in Sources */,
 				1B477CFD266BA4A600BEF242 /* ListsViewController.swift in Sources */,
 				1B477CEB266B98C600BEF242 /* SceneDelegate.swift in Sources */,
+				1B4A2715267F0FF500F19DE4 /* ReadWriteOnDisk.swift in Sources */,
 				1B477D09266BCDEC00BEF242 /* PrepareFirstLists.swift in Sources */,
 				1B477D01266BCAD000BEF242 /* UserClass.swift in Sources */,
 			);

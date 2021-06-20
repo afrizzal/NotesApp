@@ -36,3 +36,4 @@ class GroceryListClass: NSObject, NSCoding {
         aCoder.encode(self.listItems, forKey: "listItems")
         aCoder.encode(self.listOwner, forKey: "listOwner")
     }
+}
