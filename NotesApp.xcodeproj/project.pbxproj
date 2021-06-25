@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B371D842686392C00721079 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B371D832686392C00721079 /* ItemsViewController.swift */; };
 		1B477CE9266B98C600BEF242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477CE8266B98C600BEF242 /* AppDelegate.swift */; };
 		1B477CEB266B98C600BEF242 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477CEA266B98C600BEF242 /* SceneDelegate.swift */; };
 		1B477CED266B98C600BEF242 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B477CEC266B98C600BEF242 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B371D832686392C00721079 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		1B477CE5266B98C600BEF242 /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B477CE8266B98C600BEF242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B477CEA266B98C600BEF242 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				1B477CF3266B98C700BEF242 /* LaunchScreen.storyboard */,
 				1B477CF6266B98C700BEF242 /* Info.plist */,
 				1B477D00266BCAD000BEF242 /* UserClass.swift */,
+				1B371D832686392C00721079 /* ItemsViewController.swift */,
 				1B477D02266BCBA600BEF242 /* NotesAppListClass.swift */,
 				1B4A2714267F0FF500F19DE4 /* ReadWriteOnDisk.swift */,
 				1B477D04266BCC7600BEF242 /* AppData.swift */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B477CED266B98C600BEF242 /* ViewController.swift in Sources */,
+				1B371D842686392C00721079 /* ItemsViewController.swift in Sources */,
 				1BC582382672473700C5EED2 /* Convert.swift in Sources */,
 				1B477CE9266B98C600BEF242 /* AppDelegate.swift in Sources */,
 				1B477CFF266BC97000BEF242 /* ItemClass.swift in Sources */,
