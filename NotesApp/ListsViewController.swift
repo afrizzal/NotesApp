@@ -143,21 +143,17 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         let alert = UIAlertController(title: titleStr,
                                       message: messageStr,
-                                      preferredStyle: UIAlertControllerStyle.alert)
+                                      preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK",
-                                      style: UIAlertActionStyle.default,
+                                      style: UIAlertAction.Style.default,
                                       handler: nil))
         self.present(alert,
                      animated: true,
                      completion: nil)
     }
     
-    
-    
-    
-    
-    
     @IBAction func profileAction(_ sender: Any) {
     }
 }
+
