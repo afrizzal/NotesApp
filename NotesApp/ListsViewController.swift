@@ -157,3 +157,36 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 }
 
+    func registerAlert ()
+        {
+            let regAlert = UIAlertController(title: "Register",
+                                             message: "Please enter name, email and apssword",
+                                             preferredStyle: UIAlertControllerStyle.alert)
+            
+            regAlert.addTextField { (textFld) in
+                textFld.placeholder = "name"
+            }
+            
+            regAlert.addTextField { (textFld) in
+                textFld.placeholder = "email"
+            }
+            
+            regAlert.addTextField { (textFld) in
+                textFld.placeholder = "password"
+                textFld.isSecureTextEntry = true
+            }
+            
+            regAlert.addAction(UIAlertAction(title: "Register",
+                                             style: UIAlertActionStyle.default,
+                                             handler:
+                { (alert) in
+                    
+                }))
+            
+            regAlert.addAction(UIAlertAction(title: "Cancel",
+                                             style: UIAlertActionStyle.cancel,
+                                             handler: nil))
+            
+            self.present(regAlert, animated: true, completion: nil)
+            
+        }
