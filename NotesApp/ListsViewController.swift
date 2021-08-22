@@ -161,7 +161,7 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             let regAlert = UIAlertController(title: "Register",
                                              message: "Please enter name, email and apssword",
-                                             preferredStyle: UIAlertControllerStyle.alert)
+                                             preferredStyle: UIAlertController.Style.alert)
             
             regAlert.addTextField { (textFld) in
                 textFld.placeholder = "name"
@@ -177,16 +177,16 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             regAlert.addAction(UIAlertAction(title: "Register",
-                                             style: UIAlertActionStyle.default,
+                                             style: UIAlertAction.Style.default,
                                              handler:
                 { (alert) in
                     
                 }))
             
             regAlert.addAction(UIAlertAction(title: "Cancel",
-                                             style: UIAlertActionStyle.cancel,
+                                             style: UIAlertAction.Style.cancel,
                                              handler: nil))
             
-            self.present(regAlert, animated: true, completion: nil)
+            _self.present(regAlert, animated: true, completion: nil)
             
         }
