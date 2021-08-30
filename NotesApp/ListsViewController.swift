@@ -188,5 +188,44 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                              handler: nil))
             
             _self.present(regAlert, animated: true, completion: nil)
-            
         }
+
+func registerMethod(inpName: String, inpEmail: String, inpPassword: String)
+    {
+        Auth.auth().createUser(withEmail: inpEmail,
+                               password: inpPassword)
+        { (user, error) in
+            if ( error == nil)
+            {
+                let changeRequest = user?.createProfileChangeRequest()
+                changeRequest?.displayName = inpName
+                
+                changeRequest?.commitChanges(completion:
+                    { (profError) in
+                        if ( profError == nil)
+                        {
+                            SetTheLocalUser.set(inpName: user!.displayName!,
+                                                inpEmail: user!.email!,
+                                                inpUid: user!.uid)
+                            
+                            let userDict : [String : String] = ["name": user!.displayName!,
+                                                                "email": user!.email!,
+                                                                "uid": user!.uid]
+                            
+                            AppData.sharedInstance.usersNode.child(user!.uid).setValue(userDict)
+                            
+                            for anyList in AppData.sharedInstance.currentLST
+                            {
+                                if ( anyList.listOwner.uid == AppData.sharedInstance.curUser!.uid)
+                                {
+                                    // write it to the cloud
+                                }
+                            }
+                            
+                        }
+                })
+                
+            }
+        }
+        
+    }
