@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,10 +18,11 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
         self.readData()
+        
     }
+    
     
 
     func readData ()
@@ -55,7 +57,7 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath)
         
-        let thisList = AppData.sharedInstance.currentLST[indexPath.row] as NotesAppListClass
+        let thisList = AppData.sharedInstance.currentLST[indexPath.row] as GroceryListClass
         
         
         cell.textLabel?.text = thisList.listName
@@ -71,13 +73,13 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         AppData.sharedInstance.currentLST.remove(at: indexPath.row)
         ReadWriteOnDisk.writeData()
         
         
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -102,7 +104,7 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func newListAction(_ sender: Any) {
         let alert = UIAlertController (title: "New List",
                                         message: "Please enter the name of your new list",
-                                        preferredStyle: UIAlertController.Style.alert)
+                                        preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = "new list"
@@ -111,14 +113,14 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         alert.addAction(UIAlertAction(title: "Save",
-                                      style: UIAlertAction.Style.default,
+                                      style: UIAlertActionStyle.default,
                                       handler:
             { (myAlert) in
                 self.newListSave(inpName: alert.textFields![0].text!)
             }))
         
         alert.addAction(UIAlertAction(title: "Cancel",
-                                      style: UIAlertAction.Style.cancel,
+                                      style: UIAlertActionStyle.cancel,
                                       handler:nil ))
         
         self.present(alert, animated: true, completion: nil)
@@ -127,7 +129,7 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func newListSave (inpName: String)
     {
-        let newList = NotesAppListClass(inpListName: inpName,
+        let newList = GroceryListClass(inpListName: inpName,
                                        inpOwner: AppData.sharedInstance.curUser!,
                                        inpListItems: [])
         
@@ -136,6 +138,7 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         listsTableView.reloadData()
         
         ReadWriteOnDisk.writeData()
+        
     }
     
     
@@ -143,54 +146,95 @@ class ListsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         let alert = UIAlertController(title: titleStr,
                                       message: messageStr,
-                                      preferredStyle: UIAlertController.Style.alert)
+                                      preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "OK",
-                                      style: UIAlertAction.Style.default,
+                                      style: UIAlertActionStyle.default,
                                       handler: nil))
         self.present(alert,
                      animated: true,
                      completion: nil)
     }
     
+    
+    
+    
+    
+    
     @IBAction func profileAction(_ sender: Any) {
-    }
-}
-
-    func registerAlert ()
-        {
-            let regAlert = UIAlertController(title: "Register",
-                                             message: "Please enter name, email and apssword",
-                                             preferredStyle: UIAlertController.Style.alert)
-            
-            regAlert.addTextField { (textFld) in
-                textFld.placeholder = "name"
-            }
-            
-            regAlert.addTextField { (textFld) in
-                textFld.placeholder = "email"
-            }
-            
-            regAlert.addTextField { (textFld) in
-                textFld.placeholder = "password"
-                textFld.isSecureTextEntry = true
-            }
-            
-            regAlert.addAction(UIAlertAction(title: "Register",
-                                             style: UIAlertAction.Style.default,
-                                             handler:
-                { (alert) in
-                    
-                }))
-            
-            regAlert.addAction(UIAlertAction(title: "Cancel",
-                                             style: UIAlertAction.Style.cancel,
-                                             handler: nil))
-            
-            _self.present(regAlert, animated: true, completion: nil)
+        
+        let profAlert = UIAlertController (title: "Profile",
+                                           message: "What would you like to do",
+                                           preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let loginAction = UIAlertAction (title: "Login",
+                                         style: UIAlertActionStyle.default)
+        { (actionSheet) in
+            // authenitciate user
+            // read user's online lists
+            // and compare them
         }
+        profAlert.addAction(loginAction)
+        
+        let registerAction = UIAlertAction (title: "Register",
+                                            style: UIAlertActionStyle.default)
+        { (actionSheet) in
+            self.registerAlert()
+        }
+        profAlert.addAction(registerAction)
+        
+        let logoutAction = UIAlertAction (title: "Logout",
+                                          style: UIAlertActionStyle.default)
+        { (actionSheet) in
+            
+        }
+        profAlert.addAction(logoutAction)
+        
+        let cancelAction = UIAlertAction (title: "Cancel",
+                                          style: UIAlertActionStyle.cancel,
+                                          handler: nil)
+        profAlert.addAction(cancelAction)
+        
+        self.present(profAlert, animated: true, completion: nil)
+    }
+    
+    func registerAlert ()
+    {
+        let regAlert = UIAlertController(title: "Register",
+                                         message: "Please enter name, email and apssword",
+                                         preferredStyle: UIAlertControllerStyle.alert)
+        
+        regAlert.addTextField { (textFld) in
+            textFld.placeholder = "name"
+        }
+        
+        regAlert.addTextField { (textFld) in
+            textFld.placeholder = "email"
+        }
+        
+        regAlert.addTextField { (textFld) in
+            textFld.placeholder = "password"
+            textFld.isSecureTextEntry = true
+        }
+        
+        regAlert.addAction(UIAlertAction(title: "Register",
+                                         style: UIAlertActionStyle.default,
+                                         handler:
+            { (alert) in
+                self.registerMethod(inpName: (regAlert.textFields?[0].text)!,
+                                    inpEmail: (regAlert.textFields?[1].text)!,
+                                    inpPassword: (regAlert.textFields?[2].text)!)
+            }))
+        
+        regAlert.addAction(UIAlertAction(title: "Cancel",
+                                         style: UIAlertActionStyle.cancel,
+                                         handler: nil))
+        
+        self.present(regAlert, animated: true, completion: nil)
+    }
+    
 
-func registerMethod(inpName: String, inpEmail: String, inpPassword: String)
+    func registerMethod(inpName: String, inpEmail: String, inpPassword: String)
     {
         Auth.auth().createUser(withEmail: inpEmail,
                                password: inpPassword)
@@ -218,10 +262,15 @@ func registerMethod(inpName: String, inpEmail: String, inpPassword: String)
                             {
                                 if ( anyList.listOwner.uid == AppData.sharedInstance.curUser!.uid)
                                 {
-                                    // write it to the cloud
+                                    SaveListOnCloud.save(inpList: anyList)
+
                                 }
                             }
                             
+                            self.alertShowMethod(titleStr: "Success",
+                                                 messageStr: "You are now registered on the server")
+                            
+                            self.listsTableView.reloadData()
                         }
                 })
                 
@@ -229,3 +278,7 @@ func registerMethod(inpName: String, inpEmail: String, inpPassword: String)
         }
         
     }
+    
+
+    
+}
